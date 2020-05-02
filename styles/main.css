@@ -1,0 +1,26 @@
+body {
+	font-family: 'Noto Sans', sans-serif;
+	background-color: #EEEEEE;
+}
+
+.navbar-dark {
+	background-color: #007769;
+}
+
+main>.container {
+	padding: 72px 15px 0;
+}
+
+.footer {
+	background-color: #48a999;
+	color: #EEEEEE;
+}
+
+.footer>.container>.row>a {
+	color: #EEEEEE;
+}
+
+.footer>.container {
+	padding-right: 15px;
+	padding-left: 15px;
+}
