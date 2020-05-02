@@ -50,8 +50,35 @@
 
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0">
-		<div class="container">
-			TODO
+		<div class="container mt-3">
+			<form>
+				<!-- Description -->
+				<div class="form-group">
+					<label>Desctiption</label>
+					<textarea class="form-control md-textarea" rows="3"></textarea>
+				</div>
+				
+				<!--Percent-->
+				<div class="form-group">
+					<label>Percentage</label>
+					<div class="input-group-prepend">
+						<input type="text" class="form-control">
+						<div class="input-group-prepend">
+							<span class="input-group-text">%</span>
+						</div>
+					</div>
+				</div>
+
+				<!--Deadline-->				
+				<div class="form-group">
+					<label>Deadline</label>
+					<div>
+						<input type="date" name="birthday"> 
+					</div>
+				</div>
+
+				<button class="btn btn-primary" type="submit">Submit</button>
+			</form>
 		</div>
 	</main>
 
