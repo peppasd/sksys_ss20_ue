@@ -11,6 +11,10 @@ main>.container {
 	padding: 72px 15px 0;
 }
 
+main>.container-fluid {
+	padding: 100px 15px 0;
+}
+
 .footer {
 	background-color: #48a999;
 	color: #EEEEEE;
