@@ -50,8 +50,58 @@
 
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0">
-		<div class="container">
-			TODO
+		<div class="container-fluid">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Task</th>
+						<th scope="col">Deadline</th>
+						<th scope="col">Progress</th>
+						<th scope="col"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td scope="row">Do the SkSys homework</td>
+						<td>14/05/2020</td>
+						<td>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100">10%</div>
+							</div>
+						</td>
+						<td>
+							<button type="button" class="btn btn-primary mr-2">Edit</button>
+							<button type="button" class="btn btn-danger">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td scope="row">Browse reddit</td>
+						<td>07/09/2099</td>
+						<td>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100">99%</div>
+							</div>
+						</td>
+						<td>
+							<button type="button" class="btn btn-primary mr-2">Edit</button>
+							<button type="button" class="btn btn-danger">Delete</button>
+						</td>
+					</tr>
+					<tr>
+						<td scope="row">Learn Django</td>
+						<td>16/05/2020</td>
+						<td>
+							<div class="progress">
+								<div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">33%</div>
+							</div>
+						</td>
+						<td>
+							<button type="button" class="btn btn-primary mr-2">Edit</button>
+							<button type="button" class="btn btn-danger">Delete</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</main>
 
