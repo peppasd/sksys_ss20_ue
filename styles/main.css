@@ -15,6 +15,37 @@ main>.container-fluid {
 	padding: 100px 15px 0;
 }
 
+.btn {
+	padding: 2px 10px;
+    border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+	background:#ce6c4d;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+	background: #C75B39;
+}
+
+.progress{
+	align-items: center;
+	vertical-align: middle;	
+	height: 25px;
+
+}
+
+.progress-bar {
+	color: #EEEEEE;
+	background-color: #ce6c4d;
+}
+
 .footer {
 	background-color: #48a999;
 	color: #EEEEEE;
