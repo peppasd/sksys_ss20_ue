@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="styles/main.css">
 
 	<!-- Google Fontts-->
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
 
 </head>
 
@@ -47,13 +47,14 @@
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0">
 		<div class="container-fluid">
-			<div class ="row">
-				<div class="col mx-md-5">
+			<div class ="d-flex justify-content-center">
+				<div class="w-75">
+					<h1 class="text-center">Edit Task</h1>
 					<form>
 						<!-- Description -->
 						<div class="form-group">
 							<label>&ensp;Desctiption</label>
-							<textarea class="form-control md-textarea" placeholder="Text here." rows="3">My current description</textarea>
+							<textarea class="form-control md-textarea" placeholder="Text here." rows="3">My old task description</textarea>
 						</div>
 						
 						<!--Percent-->
@@ -72,7 +73,7 @@
 						</div>
 						<div class="row justify-content-around">
 							<div>
-								<button class="btn btn-primary col" onclick="window.location.href='index.html'" type="reset">Cancel</button>
+								<button class="btn btn-danger col" onclick="window.location.href='index.html'" type="reset">Cancel</button>
 							</div>
 							<div>
 								<button class="btn btn-primary col" type="submit">Submit</button>

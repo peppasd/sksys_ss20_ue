@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="styles/main.css">
 
 	<!-- Google Fontts-->
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
 
 </head>
 
@@ -47,57 +47,73 @@
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0">
 		<div class="container-fluid">
-			<table class="table">
-				<thead>
-					<tr>
-						<th scope="col">Task</th>
-						<th scope="col">Deadline</th>
-						<th scope="col">Progress</th>
-						<th scope="col"></th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td scope="row">Do the SkSys homework</td>
-						<td>14/05/2020</td>
-						<td>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
-							</div>
-						</td>
-						<td>
-							<button type="button" onclick="window.location.href='edit.html'" class="btn btn-primary mr-2">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr>
-					<tr>
-						<td scope="row">Browse reddit</td>
-						<td>07/09/2099</td>
-						<td>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100">99%</div>
-							</div>
-						</td>
-						<td>
-							<button type="button" onclick="window.location.href='edit.html'" class="btn btn-primary mr-2">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr>
-					<tr>
-						<td scope="row">Learn Django</td>
-						<td>16/05/2020</td>
-						<td>
-							<div class="progress">
-								<div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">33%</div>
-							</div>
-						</td>
-						<td>
-							<button type="button" onclick="window.location.href='edit.html'" class="btn btn-primary mr-2">Edit</button>
-							<button type="button" class="btn btn-danger">Delete</button>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+			<h1 class="text-center">My Tasks</h1>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">Task</th>
+							<th scope="col">Deadline</th>
+							<th scope="col">Progress</th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td scope="row" class="w-50 align-middle">Do the SkSys homework</td>
+							<td class="align-middle">14/05/2020</td>
+							<td class="align-middle">
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+								</div>
+							</td>
+							<td class="align-middle text-right">
+								<button type="button" onclick="window.location.href='edit.html'" class="btn btn-primary mb-2 mb-lg-0 mr-2">Edit</button>
+								<button type="button" class="btn btn-danger">Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td scope="row" class="w-50 align-middle">Browse reddit</td>
+							<td class="align-middle">07/09/2099</td>
+							<td class="align-middle">
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 99%;" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100">99%</div>
+								</div>
+							</td>
+							<td class="align-middle text-right">
+								<button type="button" onclick="window.location.href='edit.html'" class="btn btn-primary mb-2 mb-lg-0 mr-2">Edit</button>
+								<button type="button" class="btn btn-danger">Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td scope="row" class="w-50 align-middle">Learn Django</td>
+							<td class="align-middle">16/05/2020</td>
+							<td class="align-middle">
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100">33%</div>
+								</div>
+							</td>
+							<td class="align-middle text-right">
+								<button type="button" onclick="window.location.href='edit.html'" class="btn btn-primary mb-2 mb-lg-0 mr-2">Edit</button>
+								<button type="button" class="btn btn-danger">Delete</button>
+							</td>
+						</tr>
+						<tr>
+							<td scope="row" class="mw-75 align-middle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget lacinia leo. Aliquam iaculis, felis tempor interdum vestibulum, ante neque dapibus dolor, nec volutpat justo enim nec tortor. Donec mollis massa ut iaculis volutpat. Nunc accumsan massa eget massa varius consequat.</td>
+							<td class="align-middle">16/05/2020</td>
+							<td class="align-middle">
+								<div class="progress">
+									<div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
+								</div>
+							</td>
+							<td class="align-middle text-right">
+								<button type="button" onclick="window.location.href='edit.html'" class="btn btn-primary mb-2 mb-lg-0 mr-2">Edit</button>
+								<button type="button" class="btn btn-danger">Delete</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</main>
 

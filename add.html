@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="styles/main.css">
 
 	<!-- Google Fontts-->
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Mono&display=swap" rel="stylesheet">
 
 </head>
 
@@ -47,20 +47,21 @@
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0">
 		<div class="container-fluid">
-			<div class ="row">
-				<div class="col mx-md-5">
+			<div class ="d-flex justify-content-center">
+				<div class="w-75">
+					<h1 class="text-center">Add Task</h1>
 					<form>
 						<!-- Description -->
 						<div class="form-group">
 							<label>&ensp;Desctiption</label>
-							<textarea class="form-control md-textarea" placeholder="Text here." rows="3"></textarea>
+							<textarea class="form-control md-textarea" placeholder="Enter task here." rows="3"></textarea>
 						</div>
 						
 						<!--Percent-->
 						<div class="form-group">
 							<label>&ensp;Percentage</label>
 							<span id="perc">%</span>
-							<input type="number" min="0" max="100" placeholder="100%" class="form-control">
+							<input type="number" min="0" max="100" placeholder="100" class="form-control">
 						</div>
 
 						<!--Deadline-->				
@@ -70,7 +71,14 @@
 								<input type="date" name="deadline"> 
 							</div>
 						</div>
-						<button class="btn btn-primary">Submit</button>
+						<div class="row justify-content-around">
+							<div>
+								<button class="btn btn-danger col" onclick="window.location.href='index.html'" type="reset">Cancel</button>
+							</div>
+							<div>
+								<button class="btn btn-primary col" type="submit">Submit</button>
+							</div>
+						</div>
 					</form>
 				</div>
 			</div>
