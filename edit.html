@@ -40,9 +40,6 @@
 					<li class="nav-item px-md-5">
 						<a class="nav-link" href="add.html">Add</a>
 					</li>
-					<li class="nav-item px-md-5 active">
-						<a class="nav-link" href="howto.html">How-To</a>
-					</li>
 				</ul>
 			</div>
 		</nav>
@@ -50,8 +47,34 @@
 
 	<!-- Begin page content -->
 	<main role="main" class="flex-shrink-0">
-		<div class="container">
-			TODO
+		<div class="container-fluid">
+			<div class ="row">
+				<div class="col mx-md-5">
+					<form>
+						<!-- Description -->
+						<div class="form-group">
+							<label>&ensp;Desctiption</label>
+							<textarea class="form-control md-textarea" placeholder="Text here." rows="3">My current description</textarea>
+						</div>
+						
+						<!--Percent-->
+						<div class="form-group">
+							<label>&ensp;Percentage</label>
+							<span id="perc">%</span>
+							<input type="number" min="0" max="100" placeholder="100" class="form-control" value="50">
+						</div>
+
+						<!--Deadline-->				
+						<div class="form-group">
+							<label>&ensp;Deadline</label>
+							<div>
+								<input type="date" name="deadline" value="2020-06-30"> 
+							</div>
+						</div>
+						<button class="btn btn-primary" style="background-color:#C75B39; border-color:#C75B39" type="submit">Submit</button>
+					</form>
+				</div>
+			</div>
 		</div>
 	</main>
 
