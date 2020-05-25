@@ -21,10 +21,53 @@ async function createTask(text, deadline, progress) {
     deadline: deadline,
     progress: progress
   });
-  await task.save();
+  await task.save(function(err) {
+    if (err)
+        res.send(err);
+
+    res.json({ message: 'Task created!' });
+  });
 }
 
 async function getTasks() {
-  var result = await Task.find();
-  console.log(result.toString());
+  var result = await Task.find(function(err, tasks) {
+    if (err)
+        res.send(err);
+
+    console.log("Getting all tasks...");
+    res.json(tasks);
+});
 }
+
+function editTask() {
+  Task.findById(req.params.tasks_id, function(err, task) {
+    if (err)
+        res.send(err);
+
+    task.text = req.body.text;
+    task.save(function(err){
+      if (err)
+        res.send(err);
+
+        res.json({message: "Task updated!" });
+    });
+  });
+}
+
+function deleteTask(){
+  Task.remove({
+    _id: req.params.task_id
+  }, function (err, task){
+    if (err)
+      res.send(err);
+
+    res.json({message: "Successfully deleted!"});
+  });
+}
+
+
+exports.getTasks = getTasks;
+exports.editTask = editTask;
+exports.createTask = createTask;
+exports.deleteTask = deleteTask;
+module.exports = Task;
