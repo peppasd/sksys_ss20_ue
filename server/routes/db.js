@@ -4,7 +4,7 @@ mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedT
 const taskSchema = mongoose.Schema({
   text: String,
   deadline: Date,
-  progress: Number
+  progress: {type: Number, min: 0, max: 100}
 });
 
 const Task = mongoose.model("Task", taskSchema);
@@ -15,11 +15,11 @@ db.once('open', function() {
   console.log("db: connecetd");
 });
 
-async function createTask(text, deadline, progress) {
+async function createTask(ttext, tdeadline, tprogress) {
   var task = new Task({
-    text: text,
-    deadline: deadline,
-    progress: progress
+    text: ttext,
+    deadline: tdeadline,
+    progress: tprogress
   });
   await task.save(function(err) {
     if (err)
@@ -39,12 +39,15 @@ async function getTasks() {
 });
 }
 
-function editTask() {
-  Task.findById(req.params.tasks_id, function(err, task) {
+function editTask(tid, ttext, tdeadline, tpercent) {
+  Task.findById(tid, function(err, task) {
     if (err)
         res.send(err);
 
-    task.text = req.body.text;
+    task.text = ttext;
+    task.deadline = tdeadline;
+    task.percent = tpercent;
+
     task.save(function(err){
       if (err)
         res.send(err);
@@ -54,9 +57,11 @@ function editTask() {
   });
 }
 
-function deleteTask(){
+function deleteTask(id){
+  // Task.findByIdAndRemove();
+
   Task.remove({
-    _id: req.params.task_id
+    _id: id
   }, function (err, task){
     if (err)
       res.send(err);
@@ -65,9 +70,5 @@ function deleteTask(){
   });
 }
 
-
-exports.getTasks = getTasks;
-exports.editTask = editTask;
-exports.createTask = createTask;
-exports.deleteTask = deleteTask;
+module.exports = {deleteTask, getTasks, editTask, createTask}; 
 module.exports = Task;
