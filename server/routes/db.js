@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
-const taskSchema = mongoose.Schema({
+var Schema = mongoose.Shema;
+
+const taskSchema = new Schema({
   text: String,
   deadline: Date,
   progress: {type: Number, min: 0, max: 100}
@@ -70,5 +72,5 @@ function deleteTask(id){
   });
 }
 
-module.exports = {deleteTask, getTasks, editTask, createTask}; 
-module.exports = Task;
+exports = {deleteTask, getTasks, editTask, createTask}; 
+module.exports = {Task: Task};

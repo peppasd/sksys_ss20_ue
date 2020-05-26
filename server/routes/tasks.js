@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var task = require('./db');
+// import * as task from "./db";
 
 //Get all tasks
 router.get("/", (req, res) => {
