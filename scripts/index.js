@@ -3,7 +3,7 @@ Vue.component('edit-table', {
   template: `
   <div class ="d-flex justify-content-center">
     <div class="w-75">
-      <h1 class="text-center">Edit Task {{ task._id }}</h1>
+      <h1 class="text-center">Edit Task</h1>
       <form>
         <!-- Description -->
         <div class="form-group">
@@ -42,9 +42,9 @@ Vue.component('edit-table', {
     document.getElementById('deadline').value = this.task.deadline;
   },
   methods: {
-    submitEdit: function() {
+    submitEdit: async function() {
       let task = this.task;
-      fetch("http://localhost:3000/tasks/" + this.task._id, {
+      let response = fetch("http://localhost:3000/tasks/" + this.task._id, {
         method: 'PATCH',
         headers: {
           'Accept': 'application/json',
@@ -52,8 +52,13 @@ Vue.component('edit-table', {
         },
         body: JSON.stringify(task)
       });
-      
-      window.location.href='index.html';
+
+      if (!response.ok) {
+        alert("invalid input")
+      }
+      else {
+        window.location.href='index.html';
+      }
     }
   }
 })

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var db = require('./db');
+var val = require('./validate')
 
 //Get all tasks
 router.get("/", (req, res) => {
@@ -15,6 +16,11 @@ router.post("/", (req, res) => {
   let text = req.body.text;
   let deadline = req.body.deadline;
   let progress = parseInt(req.body.progress);
+
+  if (!val.validate(text, deadline, progress)){
+    res.status(400).send("Invalid content");
+    return;
+  } 
   
   //TODO error handling
   db.createTask(text, deadline, progress);
@@ -34,6 +40,12 @@ router.patch("/:id", (req, res) => {
   let text = req.body.text;
   let deadline = req.body.deadline;
   let progress = parseInt(req.body.progress);
+
+  if (!val.validate(text, deadline, progress)){
+    res.status(400).send("Invalid content");
+    return;
+  } 
+
   //TODO error handling
   db.editTask(id, text, deadline, progress);
   res.send("OK");

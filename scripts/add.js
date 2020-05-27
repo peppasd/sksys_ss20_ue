@@ -1,4 +1,4 @@
-function submitTask() {
+async function submitTask() {
   //TODO submit new task
   let text = document.getElementById("text").value;
   let progress = document.getElementById("progress").value;
@@ -10,7 +10,7 @@ function submitTask() {
     deadline: deadline
   }
 
-  fetch("http://localhost:3000/tasks/", {
+  let response = await fetch("http://localhost:3000/tasks/", {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -19,5 +19,11 @@ function submitTask() {
     body: JSON.stringify(task)
   });
 
-  window.location.href='index.html';
+  if (!response.ok) {
+    alert("invalid input")
+  }
+  else {
+    window.location.href='index.html';
+  }
+
 }
