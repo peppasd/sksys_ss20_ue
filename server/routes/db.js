@@ -72,5 +72,5 @@ function deleteTask(id){
   });
 }
 
-exports = {deleteTask, getTasks, editTask, createTask}; 
+module.exports = {deleteTask:deleteTask, getTasks:getTasks, editTask:editTask, createTask:createTask}; 
 module.exports = {Task: Task};
