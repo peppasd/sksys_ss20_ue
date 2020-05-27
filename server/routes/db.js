@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
 
-var Schema = mongoose.Shema;
+var Schema = mongoose.Schema;
 
 const taskSchema = new Schema({
   text: String,
