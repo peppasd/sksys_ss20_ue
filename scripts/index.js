@@ -3,26 +3,26 @@ Vue.component('edit-table', {
   template: `
   <div class ="d-flex justify-content-center">
     <div class="w-75">
-      <h1 class="text-center">Edit Task {{ task.id }}</h1>
+      <h1 class="text-center">Edit Task {{ task._id }}</h1>
       <form>
         <!-- Description -->
         <div class="form-group">
           <label>&ensp;Desctiption</label>
-          <textarea id="text" class="form-control md-textarea" placeholder="Text here." rows="3"> {{ task.text }}</textarea>
+          <textarea id="text" class="form-control md-textarea" placeholder="Text here." rows="3" v-model="task.text"> {{ task.text }}</textarea>
         </div>
         
         <!--Percent-->
         <div class="form-group">
           <label>&ensp;Percentage</label>
           <span id="perc">%</span>
-          <input id="progress" type="number" min="0" max="100" placeholder="100" class="form-control" >
+          <input id="progress" type="number" min="0" max="100" placeholder="100" class="form-control" v-model="task.progress">
         </div>
 
         <!--Deadline-->				
         <div class="form-group">
           <label>&ensp;Deadline</label>
           <div>
-            <input id="deadline" type="date" name="deadline"> 
+            <input id="deadline" type="date" name="deadline" v-model="task.deadline"> 
           </div>
         </div>
       </form>
@@ -43,8 +43,16 @@ Vue.component('edit-table', {
   },
   methods: {
     submitEdit: function() {
-      alert("submit pressed");
-      //TODO
+      let task = this.task;
+      fetch("http://localhost:3000/tasks/" + this.task._id, {
+        method: 'PATCH',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+      });
+      
       window.location.href='index.html';
     }
   }
@@ -58,7 +66,7 @@ Vue.component('task-item', {
     <td class="align-middle">{{ task.deadline }}</td>
     <td class="align-middle">
       <div class="progress">
-        <div class="progress-bar" id="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">{{ task.progress }}%</div>
+        <div class="progress-bar" role="progressbar" :style="{width: task.progress+'%'}" aria-valuemin="0" aria-valuemax="100">{{ task.progress }}%</div>
       </div>
     </td>
     <td class="align-middle text-right">
@@ -67,13 +75,15 @@ Vue.component('task-item', {
     </td>
   </tr>
   `,
-  mounted: function() {
-    document.getElementById("progress").style.width = this.task.progress + "%";
-  },
   methods: {
     deleteTask: function() {
       //TODO delete
-      alert("Delete Pressed");
+      fetch("http://localhost:3000/tasks/" + this.task._id, {
+        method: 'DELETE',
+        headers: {
+          Accept: 'application/json',
+        },
+      });
       window.location.href='index.html';
     }
   }
@@ -82,17 +92,21 @@ Vue.component('task-item', {
 Vue.component('task-table', {
   data: function () {
     return {
-      tasks: [
-        {
-          id: 1,
-          text: "hii",
-          deadline: "2020-07-30",
-          progress: "70"
-        }
-      ],
+      tasks: [],
       showEdit: false,
       editTask: null
     }
+  },
+  mounted: async function() {
+    let res = await fetch("http://localhost:3000/tasks/", {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+
+    let body = await res.json();
+    this.tasks = body;
   },
   template: `
   <div>
@@ -111,7 +125,7 @@ Vue.component('task-table', {
           <task-item 
             v-for="task in tasks"
             @edit="showEdit = true; editTask = task"
-            v-bind:key="task.id"
+            v-bind:key="task._id"
             v-bind:task="task">
           </task-item>
         </tbody>
