@@ -58,7 +58,7 @@ Vue.component('task-item', {
     <td class="align-middle">{{ task.deadline }}</td>
     <td class="align-middle">
       <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">{{ task.progress }}%</div>
+        <div class="progress-bar" id="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">{{ task.progress }}%</div>
       </div>
     </td>
     <td class="align-middle text-right">
@@ -67,6 +67,9 @@ Vue.component('task-item', {
     </td>
   </tr>
   `,
+  mounted: function() {
+    document.getElementById("progress").style.width = this.task.progress + "%";
+  },
   methods: {
     deleteTask: function() {
       //TODO delete
