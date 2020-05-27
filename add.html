@@ -54,32 +54,32 @@
 						<!-- Description -->
 						<div class="form-group">
 							<label>&ensp;Desctiption</label>
-							<textarea class="form-control md-textarea" placeholder="Enter task here." rows="3"></textarea>
+							<textarea id="text" class="form-control md-textarea" placeholder="Enter task here." rows="3"></textarea>
 						</div>
 						
 						<!--Percent-->
 						<div class="form-group">
 							<label>&ensp;Percentage</label>
 							<span id="perc">%</span>
-							<input type="number" min="0" max="100" placeholder="100" class="form-control">
+							<input id="progress" type="number" min="0" max="100" placeholder="100" class="form-control">
 						</div>
 
 						<!--Deadline-->				
 						<div class="form-group">
 							<label>&ensp;Deadline</label>
 							<div>
-								<input type="date" name="deadline"> 
-							</div>
-						</div>
-						<div class="row justify-content-around">
-							<div>
-								<button class="btn btn-danger col" onclick="window.location.href='index.html'" type="reset">Cancel</button>
-							</div>
-							<div>
-								<button class="btn btn-primary col" type="submit">Submit</button>
+								<input id="deadline" type="date" name="deadline"> 
 							</div>
 						</div>
 					</form>
+					<div class="row justify-content-around">
+						<div>
+							<button class="btn btn-danger col" onclick="window.location.href='index.html'">Cancel</button>
+						</div>
+						<div>
+							<button class="btn btn-primary col" onclick="submitTask()" >Submit</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -98,6 +98,8 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+	<!-- Custom Script -->
+	<script src="scripts/add.js"></script>
 </body>
 
 </html>
