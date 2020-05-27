@@ -13,8 +13,9 @@ router.get("/", (req, res) => {
 //Create a new tasks
 router.post("/", (req, res) => {
   let text = req.body.text;
-  let deadline = Date.parse(req.body.deadline);
+  let deadline = req.body.deadline;
   let progress = parseInt(req.body.progress);
+  
   //TODO error handling
   db.createTask(text, deadline, progress);
   res.send("OK");
@@ -31,7 +32,7 @@ router.delete("/:id", (req, res) => {
 router.patch("/:id", (req, res) => {
   let id = req.params.id;
   let text = req.body.text;
-  let deadline = Date.parse(req.body.deadline);
+  let deadline = req.body.deadline;
   let progress = parseInt(req.body.progress);
   //TODO error handling
   db.editTask(id, text, deadline, progress);

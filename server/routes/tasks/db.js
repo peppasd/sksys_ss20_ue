@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 const taskSchema = new Schema({
   text: String,
-  deadline: Date,
+  deadline: String,
   progress: {type: Number, min: 0, max: 100}
 });
 
